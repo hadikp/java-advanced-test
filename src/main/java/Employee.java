@@ -1,3 +1,5 @@
+import java.time.LocalDateTime;
+
 public class Employee {
 
     private String name;
@@ -5,10 +7,14 @@ public class Employee {
 
     public Employee(String name, int yearOfBirth) {
         this.name = name;
-        if(yearOfBirth > 130) {
-            throw new IllegalArgumentException("Birthday is not correct! " + yearOfBirth);
+        if(yearOfBirth > 2022) {
+            throw new IllegalArgumentException("Birthday is not correct!");
         }
         this.yearOfBirth = yearOfBirth;
+    }
+
+    public int getAge(int yearOfBirth) {
+        return LocalDateTime.now().getYear() - yearOfBirth;
     }
 
     public String getName() {
